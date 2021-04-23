@@ -11,7 +11,7 @@ using namespace std;
 
 class DataPrinter: public MetaDataFinder{
 	public:
-	void WriteFile{
+	void WriteFile(){
 		int i;
 		ofstream fout("Metadata.csv");
 		for(i = 0; i < data.size(); i++){
