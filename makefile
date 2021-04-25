@@ -9,3 +9,12 @@ audiofile.o: audiofile.cpp audiofile.h WaveHeader.h
 
 audiotype.o: audiotype.cpp audiotype.h audiofile.h WaveHeader.h
 	g++ -c audiotype.cpp
+
+echo.o: echo.cpp echo.h Processor.h
+	g++ -c echo.cpp
+
+noisegate.o: noisegate.cpp noisegate.h Processor.h
+	g++ -c noisegate.cpp
+
+limiter.o: limiter.cpp limiter.h Processor.h
+	g++ -c limiter.cpp
