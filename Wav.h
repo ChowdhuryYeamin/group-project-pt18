@@ -13,6 +13,11 @@
 class Wav {
 	std::vector<Audio*> list;
 public:
+	unsigned char* get8BitBuffer(std::string filePath);
+	unsigned short* get16BitBuffer(std::string filePath);
+
+	std::vector<Audio*> getVectorList();
+
 	void readFile(const std::string &fp);
 	void readAllFiles(const std::string dirPath);
 };

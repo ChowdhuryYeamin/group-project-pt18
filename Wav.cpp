@@ -10,64 +10,75 @@
 #include "audiofile.h"
 #include "audiotype.h"
 
+
+unsigned char* get8BitBuffer(std::string filePath) {
+	std::ifstream file(filePath,std::ios::binary | std::ios::in);
+	unsigned char* buffer = NULL;
+	wav_header WavHeader;
+	if(file.is_open()) {
+		file.read((char*)&WavHeader, sizeof(wav_header));
+		buffer = new unsigned char[WavHeader.data_bytes];
+		file.read((char*)buffer, WavHeader.data_bytes);
+		file.close();
+	}
+
+	return buffer;
+}
+
+unsigned short* get16BitBuffer(std::string filePath) {
+	std::ifstream file(filePath,std::ios::binary | std::ios::in);
+	unsigned short* buffer = NULL;
+	wav_header WavHeader;
+	if(file.is_open()) {
+		file.read((char*)&WavHeader, sizeof(wav_header));
+		buffer = new unsigned short[WavHeader.data_bytes];
+		file.read((char*)buffer, WavHeader.data_bytes);
+		file.close();
+	}
+
+	return buffer;
+}
+
+std::vector<Audio*> Wav::getVectorList() {
+	return list;
+}
+/*
 void print(char* word, int size) {
 	for(int x = 0; x < size; x++) {
 		std::cout << word[x];
 	}
 	std::cout << std::endl;
 }
-
+*/
 void Wav::readFile(const std::string &fileName) {
     std::ifstream file(fileName,std::ios::binary | std::ios::in);
-
-	wav_header WavHeader;
-	metadata_header MetadataHeader;
-
-	metadata *metadata_list[10];
-
-	unsigned char* buffer = NULL;
-
         if(file.is_open()) {
-        	file.read((char*)&WavHeader, sizeof(wav_header));
 
+		wav_header WavHeader;
+		metadata_header MetadataHeader;
+		unsigned char* buffer = NULL;
+        	
+		file.read((char*)&WavHeader, sizeof(wav_header));
         	buffer = new unsigned char[WavHeader.data_bytes];
         	file.read((char*)buffer, WavHeader.data_bytes);
-
-		std::cout << WavHeader.size-36-WavHeader.data_bytes << std::endl;
 		
+		metadata *metadata_List[20];
+		int counter=0;
 		int x = WavHeader.size-36-WavHeader.data_bytes;
 
 		if(x != 0) {
 			file.read((char*)&MetadataHeader, sizeof(MetadataHeader));
-
 			x=x-MetadataHeader.metadata_header_size;
-
-			print(MetadataHeader.metadata_header,4);
-
-			std::cout << MetadataHeader.metadata_header_size << std::endl;
-
-			print(MetadataHeader.metadata_header_info,4);
-
-			int counter=0;
 
 			do {
 				metadata *Metadata = new metadata;				
-
 				file.read((char*)&Metadata->header, sizeof(metadata_chunk));
 
-				print(Metadata->header.metadata_chunk_type,4);
-
-				std::cout << Metadata->header.metadata_chunk_size << std::endl;
-		
 				Metadata->data = new char[Metadata->header.metadata_chunk_size];
-        			
 				file.read((char*)Metadata->data, Metadata->header.metadata_chunk_size);
 
-				print((char*)Metadata->data,Metadata->header.metadata_chunk_size);
-
 				x=x-sizeof(metadata_chunk)-Metadata->header.metadata_chunk_size;
-
-				metadata_list[counter++] = Metadata;
+				metadata_List[counter++] = Metadata;
 			
 			} while(x > 0);
 
@@ -76,21 +87,21 @@ void Wav::readFile(const std::string &fileName) {
 
 		if (WavHeader.channels == 1) {
 			if (WavHeader.bits == 8) {
-				mono8 *audiofile = new mono8(&WavHeader, fileName);
+				mono8 *audiofile = new mono8(&WavHeader, metadata_List, counter, fileName);
 				list.push_back(audiofile);
 			}
 			else {
-				mono16 *audiofile = new mono16(&WavHeader, fileName);
+				mono16 *audiofile = new mono16(&WavHeader, metadata_List,counter,  fileName);
 				list.push_back(audiofile);
 			}
 		}
 		else {
 			if (WavHeader.bits == 8) {
-				stereo8 *audiofile = new stereo8(&WavHeader, fileName);
+				stereo8 *audiofile = new stereo8(&WavHeader,  metadata_List, counter, fileName);
 				list.push_back(audiofile);
 			}
 			else {
-				stereo16 *audiofile = new stereo16(&WavHeader, fileName);
+				stereo16 *audiofile = new stereo16(&WavHeader,  metadata_List, counter, fileName);
 				list.push_back(audiofile);
 			}
 		}
@@ -105,6 +116,6 @@ void Wav::readAllFiles(const std::string dirPath) {
 			continue;
 		}
 		readFile(x.path());
-		std::cout << x.path() << std::endl;
+
 	}
 }
