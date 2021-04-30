@@ -25,13 +25,13 @@ unsigned char* get8BitBuffer(std::string filePath) {
 	return buffer;
 }
 
-unsigned short* get16BitBuffer(std::string filePath) {
+signed short* get16BitBuffer(std::string filePath) {
 	std::ifstream file(filePath,std::ios::binary | std::ios::in);
-	unsigned short* buffer = NULL;
+	signed short* buffer = NULL;
 	wav_header WavHeader;
 	if(file.is_open()) {
 		file.read((char*)&WavHeader, sizeof(wav_header));
-		buffer = new unsigned short[WavHeader.data_bytes];
+		buffer = new signed short[WavHeader.data_bytes];
 		file.read((char*)buffer, WavHeader.data_bytes);
 		file.close();
 	}
