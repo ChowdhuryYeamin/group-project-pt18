@@ -5,20 +5,33 @@
 
 using namespace std;
 
+
 class Limiter: public Processor{
-	virtual void Processor(unsigned char* soundvalues, int numvalues) override{
-		int i;
-		for(i = 0; i < numvalues; i++){
-			if(soundvalues[i] > 204){
-				soundvalues[i] = 204;
-			}
-			else{
-				continue;
-			}
-	}
-}
-	}
-}
+
+    public:
+
+	Limiter::Limiter();
+	// Build a contructor for the class Limiter
+
+    Limiter::~Limiter();
+	// Build a Limiter destructor
+
+    void Processor8_M_S(unsigned char buffer[], int bufferSize);
+
+    void Processor16_M_S(singed short buffer[], int bufferSize);
+
+    Limiter::Limiter() {}
+	// Build a contructor for the class Limiter
+
+    Limiter::~Limiter() {}
+	// Build a Limiter destructor
+
+
+    
+    
+
+	
+};
 
 #endif
 

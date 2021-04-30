@@ -1,26 +1,42 @@
 #define ECHO_H
 #ifndef ECHO_H
 
-#include "Processor.h"
-
 using namespace std;
 
-class Echo: public Processor{
-	virtual void Processor(unsigned char* soundvalues, int numvalues) override{
-		int index, val;
-		for(i = 0; i < numvalues; index++){
-			val = soundvalues[i] + soundvalues[index-period];
-			if(newval < soundvalues[index-period]){
-				soundvalues[i] = newval;
-			}
-			else if(val > 255){
-				soundvalues[i] = 255;
-			}
-			else{
-				continue;
-			}
-		}
-	}
+class Echo{
+    unsigned char echoDelay1;
+    signed short echoDelay2;
+
+public:
+
+    Echo(unsigned char echoDelay1): echoDelay1(echoDelay1){};
+    ~Echo(){}
+    
+void Processor8(unsigned char buffer[], int bufferSize,bool){
+    
+	for (int x=0; x < bufferSize; x++) {
+		int indexDelayed = x - echoDelay1;
+        if(indexDelayed > 0){
+            buffer[x] = (buffer[x] + buffer[x-echoDelay1]) * 0.5;
+       }
+
+    }
+
+}
+
+void Processor16(singed short buffer[], int bufferSize, bool){
+    
+	for (int x=0; x < bufferSize; x++) {
+		int indexDelayed = x - echoDelay1;
+        if(indexDelayed > 0){
+            buffer[x] = (buffer[x] + buffer[x-echoDelay1]) * 0.5;
+        }
+    }
+}
+
+
+
+
 };
 
 #endif
