@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+#define LENGTH 500
+
 #include "audiofile.h"
 
 using namespace std;
@@ -23,7 +25,7 @@ class DataPrinter: public WaveHeader{
          fout << "Block Align: " << WaveHeader.block_align << endl;
          fout << "Bits: " << WaveHeader.bits << endl;
          fout << "Data Bytes: " << WaveHeader.data_bytes << endl;
-         for(i = 0; i < data.size(); i++){
+         for(i = 0; i < LENGTH; i++){
              fout << data[i] << endl;
          }
          fout.close()
