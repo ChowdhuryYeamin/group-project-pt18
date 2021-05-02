@@ -20,6 +20,8 @@ public:
 
 	void readFile(const std::string &fp);
 	void readAllFiles(const std::string dirPath);
+	
+	void reWriteFile(std::string filename, char *data);
 };
 
 #endif //PROGRAMMING_ASSIGNMENT_3KL_WAV_H
