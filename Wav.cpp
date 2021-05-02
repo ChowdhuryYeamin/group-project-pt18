@@ -119,3 +119,22 @@ void Wav::readAllFiles(const std::string dirPath) {
 
 	}
 }
+
+void Wav::reWriteFile(std::string filename, char *data){
+	int i, x = WavHeader.size-36-WavHeader.data_bytes;
+	ofstream fout(filename);
+	file.read((char*)buffer, WavHeader.data_bytes);
+	if(fout.is_open()){
+		if(x != 0){
+			while(x > 0){
+				fout << data[i] << endl;
+			}
+		}
+		else{
+			continue;
+		}
+	}
+	else{
+		cout << "ERROR: File metadata could not be rewritten" << endl;
+	}
+}
