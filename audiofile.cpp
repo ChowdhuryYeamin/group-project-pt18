@@ -1,10 +1,11 @@
 //Sean Rolandelli
 
 #include <string>
+#include <iostream>
 
 #include "audiofile.h"
 
-Audio::Audio(wav_header *wavheader, metadata *metadata_List[], int count_metadata, std::string filename) : wavheader(wavheader), metadata_List(metadata_List), count_metadata(count_metadata), filename(filename) {
+Audio::Audio(wav_header *wavheader, metadata metadata_List[], int count_metadata, std::string filename) : wavheader(wavheader), metadata_List(metadata_List), count_metadata(count_metadata), filename(filename) {
 }
 
 Audio::~Audio() {
@@ -18,7 +19,7 @@ std::string Audio::getFilename() {
 	return filename;
 }
 
-metadata **Audio::getMetadataList() {
+metadata *Audio::getMetadataList() {
 	return metadata_List;
 }
 
