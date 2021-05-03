@@ -13,6 +13,21 @@ void print(char* word, int size) {
 	std::cout << std::endl;
 }
 
+void Menu(){
+     cout << "*****MENU*****" << endl;
+     cout << "1. Process Files" << endl;
+     cout << "2. Create CSV File with Specs" << endl;
+}
+
+void alternateMenu(){
+     cout << "*****Select an operation*****" << endl;
+     cout << "1. Echo" << endl;
+     cout << "2. Noisegate" << endl;
+     cout << "3. Limiter" << endl;
+     cout << "4. Normalizer" << endl;
+     cout << "5. Edit File Metadata" << endl;
+}
+
 int main() {
 	
 	Wav wav;
