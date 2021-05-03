@@ -67,21 +67,18 @@ void Wav::readFile(const std::string &fileName) {
 		int x = WavHeader->size-36-WavHeader->data_bytes;
 
 		if(x != 0) {
-			file.read((char*)MetadataHeader, sizeof(MetadataHeader));
+			file.read((char*)MetadataHeader, sizeof(metadata_header));
 			x=x-MetadataHeader->metadata_header_size;
-std::cout<<"RF: header: " << MetadataHeader->metadata_header[0] << std::endl;
-std::cout<<"RF: header: " << MetadataHeader->metadata_header[1] << std::endl;
+
 			do {	
 				metadata *Metadata = new metadata;	
-						
+
 				file.read((char*)&Metadata->header, sizeof(metadata_chunk));
-std::cout<<"RF chunksize = " << Metadata->header.metadata_chunk_type[0] << std::endl;
-std::cout<<"RF chunksize = " << Metadata->header.metadata_chunk_size << std::endl;
 				Metadata->data = new char[Metadata->header.metadata_chunk_size];
-				//file.read((char*)Metadata->data, Metadata->header.metadata_chunk_size);
+				file.read((char*)Metadata->data, Metadata->header.metadata_chunk_size);
 
 				x=x-sizeof(metadata_chunk)-Metadata->header.metadata_chunk_size;
-				metadata_List[counter++] = *Metadata;
+		 		metadata_List[counter++] = *Metadata;
 			
 			} while(x > 0);
 
@@ -107,7 +104,7 @@ void Wav::readAllFiles(const std::string dirPath) {
 int writeMetadata(std::ofstream *file, metadata newMetadata_List[], int count) {
 	metadata_header newMetadataHeader;
 	int MetadataSize = 0;
-std::cout << "count="<<count << std::endl;
+
 	for (int x=0; x < count-1; x++) { //count-1 is to account for id3 in total size but not as metadata size
 		MetadataSize += newMetadata_List[x].header.metadata_chunk_size + sizeof(metadata_chunk);
 	}
@@ -127,7 +124,6 @@ std::cout << "count="<<count << std::endl;
 	file->write((char*)&newMetadataHeader.metadata_header_info, 4);
 
 	for(int x=0; x < count; x++) {
-std::cout << "chucksize="<<newMetadata_List[x].header.metadata_chunk_size << std::endl;
 		file->write((char*)&newMetadata_List[x].header.metadata_chunk_type, 4);
 		file->write((char*)&newMetadata_List[x].header.metadata_chunk_size, sizeof(int));
 		file->write(newMetadata_List[x].data, newMetadata_List[x].header.metadata_chunk_size);
@@ -143,11 +139,11 @@ int Wav::newFile8Bit(Audio* audio, const std::string newName, unsigned char* buf
 	ifile.open(newName);
 
 	if (ifile.fail()) {
-std::cout<< newName << std::endl;
+
 		std::ofstream ofile(newName,std::ios::binary | std::ios::out);
 		ofile.write((char *)audio->getWavHeader(), sizeof(wav_header));
-		//ofile.write((char *)buffer, audio->getWavHeader()->data_bytes);
-std::cout<< audio->getWavHeader()->data_bytes << std::endl;
+		ofile.write((char *)buffer, audio->getWavHeader()->data_bytes);
+
 		writeMetadata(&ofile, audio->getMetadataList(), audio->getCount());
 
 		ifile.close();

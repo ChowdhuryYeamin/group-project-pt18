@@ -44,7 +44,8 @@ int main() {
 		std::string s2 = s+"testingbuffer";
 
 		unsigned char * b = wav.get8BitBuffer(s);
-		wav.newFile8Bit((*x), s2, b);
+		// Add call to processors for each file here and modify the buffer
+		wav.newFile8Bit((*x), s2, b); // this is how to call if the proccessors do work
 	}
 }
 
