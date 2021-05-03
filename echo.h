@@ -1,42 +1,20 @@
-#define ECHO_H
 #ifndef ECHO_H
+#define ECHO_H
+
+#include "Processor.h"
 
 using namespace std;
 
-class Echo{
+class Echo: public Processor{
     unsigned char echoDelay1;
     signed short echoDelay2;
-
 public:
-
-    Echo(unsigned char echoDelay1): echoDelay1(echoDelay1){};
-    ~Echo(){}
+   	Echo(unsigned char echoDelay1);
+    	~Echo();
     
-void Processor8(unsigned char buffer[], int bufferSize,bool){
-    
-	for (int x=0; x < bufferSize; x++) {
-		int indexDelayed = x - echoDelay1;
-        if(indexDelayed > 0){
-            buffer[x] = (buffer[x] + buffer[x-echoDelay1]) * 0.5;
-       }
+	virtual void Processor8_M_S(unsigned char buffer[], int bufferSize) override;
 
-    }
-
-}
-
-void Processor16(singed short buffer[], int bufferSize, bool){
-    
-	for (int x=0; x < bufferSize; x++) {
-		int indexDelayed = x - echoDelay1;
-        if(indexDelayed > 0){
-            buffer[x] = (buffer[x] + buffer[x-echoDelay1]) * 0.5;
-        }
-    }
-}
-
-
-
-
+	virtual void Processor16_M_S(signed short buffer[], int bufferSize) override;
 };
 
 #endif

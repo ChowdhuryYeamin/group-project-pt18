@@ -1,27 +1,23 @@
-#define NORMALIZATION_H
 #ifndef NORMALIZATION_H
+#define NORMALIZATION_H
 
 #include "Processor.h"
 
-using namepace std;
+using namespace std;
 
 class Normalization : public Processor{
-    private:
 
     public:
 
     Normalization();
     ~Normalization();
     
-    void Processor8_M_S(unsigned char buffer[], int bufferSize);
+    void Processor8_M_S(unsigned char buffer[], int bufferSize) override;
 
-    void Processor16_M_S(singed short buffer[], int bufferSize);
+    void Processor16_M_S(signed short buffer[], int bufferSize) override;
 
 
     
 };
-
-
-
 
 #endif
