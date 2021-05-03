@@ -4,6 +4,8 @@
 #include "Wav.h"
 #include "audiofile.h"
 
+using namespace std;
+
 const std::string testfile = "./waves/waves";
 
 void print(char* word, int size) {
@@ -47,7 +49,7 @@ int main() {
 		unsigned char * b = wav.get8BitBuffer(s);
 		wav.newFile8Bit(a, s2, b);
 	}
-
+}
 
 /*
 		if (y != 0) {
@@ -135,4 +137,4 @@ int main() {
      }
 
 }
-/*
+*/
