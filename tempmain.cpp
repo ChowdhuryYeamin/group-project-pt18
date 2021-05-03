@@ -34,20 +34,17 @@ int main() {
 	
 	Wav wav;
 	std::vector<Audio *> list;
-
 	wav.readAllFiles(testfile);
-
 	list = wav.getVectorList();
 
 	for (auto x=begin (list); x != end(list); x++) {
 		std::cout<< (*x)->getFilename() << std::endl;
 		int y = (*x)->getCount();
 		const std::string s = (*x)->getFilename();
-		std::string s2 = s + "-test.wav";
-		Audio *a = (*x);
+		std::string s2 = s+"testingbuffer";
 
 		unsigned char * b = wav.get8BitBuffer(s);
-		wav.newFile8Bit(a, s2, b);
+		wav.newFile8Bit((*x), s2, b);
 	}
 }
 

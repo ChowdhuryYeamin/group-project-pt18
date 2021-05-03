@@ -22,12 +22,12 @@ public:
 	void readFile(const std::string &fp);
 	void readAllFiles(const std::string dirPath);
 
-	void updateMetadata(Audio *audio, metadata *newMetadata_List[], int count);
+	void updateMetadata(Audio *audio, metadata newMetadata_List[], int count);
 
 	int newFile8Bit(Audio* audio, const std::string newName, unsigned char* buffer);
 	int newFile16Bit(Audio* audio, const std::string newName, signed short* buffer);
 	
-//	void reWriteFile(std::string filename, char *data);
+	void reWriteFile(std::string filename, char *data);
 };
 
 #endif //PROGRAMMING_ASSIGNMENT_3KL_WAV_H

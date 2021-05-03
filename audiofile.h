@@ -7,7 +7,6 @@
 #include "WaveHeader.h"
 
 class Audio {
-protected:
 	wav_header *wavheader;
 	std::string filename;
 	metadata *metadata_List;
