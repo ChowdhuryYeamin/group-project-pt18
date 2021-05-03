@@ -23,11 +23,16 @@ public:
 
 	void readFile(const std::string &fp);
 	void readAllFiles(const std::string dirPath);
+<<<<<<< HEAD
 
 	void updateMetadata(Audio *audio, metadata *newMetadata_List[], int count);
 
 	int newFile8Bit(Audio* audio, const std::string newName, unsigned char* buffer);
 	int newFile16Bit(Audio* audio, const std::string newName, signed short* buffer);
+=======
+	
+	void reWriteFile(std::string filename, char *data);
+>>>>>>> c24de9ca973795182d4f6e5358935b0f09e73cdb
 };
 
 #endif //PROGRAMMING_ASSIGNMENT_3KL_WAV_H
