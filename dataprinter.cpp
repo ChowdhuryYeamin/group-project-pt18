@@ -3,6 +3,10 @@
 
 using namespace std;
 
+DataPrinter::DataPrinter() {}
+
+DataPrinter::~DataPrinter() {}
+
 void DataPrinter::WriteFile(vector<Audio*> list){
      int index;
      wav_header wavh;
@@ -14,12 +18,12 @@ void DataPrinter::WriteFile(vector<Audio*> list){
              fout << "Format Size: " << wavh.fmt_size << endl;
              fout << "Audio Format: " << wavh.audio_format << endl;
              fout << "No. of Channels: " << wavh.channels << endl;
-                fout << "Sample Rate: " << wavh.sample_rate << endl;
+             fout << "Sample Rate: " << wavh.sample_rate << endl;
              fout << "Byte Rate: " << wavh.byte_rate << endl;
              fout << "Block Align: " << wavh.block_align << endl;
              fout << "Bits: " << wavh.bits << endl;
              fout << "Data Bytes: " << wavh.data_bytes << endl;
-                 fout << md.data[i] << endl;
+                 fout << md.data[index] << endl;
          }
          fout.close();
 }
