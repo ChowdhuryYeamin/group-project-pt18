@@ -1,5 +1,5 @@
-test: tempmain.cpp Wav.o audiofile.o 
-	g++ -o testing tempmain.cpp Wav.o audiofile.o -lstdc++fs
+test: tempmain.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o
+	g++ -o testing tempmain.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o -lstdc++fs
 
 Wav.o: Wav.cpp Wav.h WaveHeader.h audiofile.h  
 	g++ -c Wav.cpp 
