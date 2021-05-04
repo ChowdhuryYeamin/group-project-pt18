@@ -13,10 +13,10 @@ using namespace std;
 const std::string testfile = "./waves/waves";
 
 void print(char* word, int size) {
-      for(int x = 0; x < size; x++) {
-          std::cout << word[x];
-      }
-      std::cout << std::endl;
+       for(int x = 0; x < size; x++) {
+           std::cout << word[x];
+       }
+       std::cout << std::endl;
 }
 
 void Menu(){
@@ -41,52 +41,52 @@ void alternateMenu(){
 }
 
 void metaDataMenu(){
-      std::cout << "*****Select a Value to Change*****" << endl;
-      std::cout << "Archival Location - IARL" << endl;
-      std::cout << "Artist - IART" << endl;
-      std::cout << "Commissioned - ICMS" << endl;
-      std::cout << "Comments - ICMT" << endl;
-      std::cout << "Copyright - ICOP" << endl;
-      std::cout << "Creation Date - ICRD" << endl;
-      std::cout << "Engineer - IENG" << endl;
-      std::cout << "Genre - IGNR" << endl;
-      std::cout << "Keywords - IKEY" << endl;
-      std::cout << "Medium - IMED" << endl;
-      std::cout << "Name - INAM" << endl;
-      std::cout << "Product - IPRD" << endl;
-      std::cout << "Subject - ISBJ" << endl;
-      std::cout << "Software - ISFT" << endl;
-      std::cout << "Source - ISRC" << endl;
-      std::cout << "Source Form - ISRF" << endl;
-      std::cout << "Technician - ITCH" << endl;
+       std::cout << "*****Select a Value to Change*****" << endl;
+       std::cout << "Archival Location - IARL" << endl;
+       std::cout << "Artist - IART" << endl;
+       std::cout << "Commissioned - ICMS" << endl;
+       std::cout << "Comments - ICMT" << endl;
+       std::cout << "Copyright - ICOP" << endl;
+       std::cout << "Creation Date - ICRD" << endl;
+       std::cout << "Engineer - IENG" << endl;
+       std::cout << "Genre - IGNR" << endl;
+       std::cout << "Keywords - IKEY" << endl;
+       std::cout << "Medium - IMED" << endl;
+       std::cout << "Name - INAM" << endl;
+       std::cout << "Product - IPRD" << endl;
+       std::cout << "Subject - ISBJ" << endl;
+       std::cout << "Software - ISFT" << endl;
+       std::cout << "Source - ISRC" << endl;
+       std::cout << "Source Form - ISRF" << endl;
+       std::cout << "Technician - ITCH" << endl;
 }
 
 /**
-  * @brief Is called in the main function to display the user interface.
-  */
+   * @brief Is called in the main function to display the user interface.
+   */
 
 int buffLength(unsigned char * b){
-     int index = 0;
-     do{
-         index++;
-         }while(b[index] == '\0');
-     return(index);
+      int index = 0;
+      do{
+          index++;
+          }while(b[index] == '\0');
+      return(index);
 /**
-  * @brief Finds the length of the buffer so that it may be passed into
+   * @brief Finds the length of the buffer so that it may be passed into
 the Processor functions.
-  */
+   */
 }
 
 int sbuffLength(short * bu){
-     int index = 0;
-     do{
-         index++;
-         }while(bu[index] == '\0');
-     return(index);
+      int index = 0;
+      do{
+          index++;
+          }while(bu[index] == '\0');
+      return(index);
 /**
-  * @brief Finds the length of the buffer so that it may be passed into
+   * @brief Finds the length of the buffer so that it may be passed into
 the Processor functions.
-  */
+   */
 }
 
 int main() {
@@ -109,9 +109,12 @@ int main() {
   * @brief User input is taken here.
   */
           if(userinput == 1){
+              //std::cout << "Please enter the name of the file you'd
+like to process" << endl;
               //std::cin >> filename;
               alternateMenu();
               cin >> userinput;
+              std::string s2 = s+"testingbuffer";
           /**
   * @brief Upon receiving the users selection for the alternateMenu(),
 an if-else statement than performs the operation selected, be it Echo,
@@ -119,6 +122,7 @@ Noisegate, Normalizer or Limiter. A new object is than created using the
 constructors in each function, the buffer length is taken and then the
 pointer is set to the results given by the processor.
   */
+
               if(userinput == 1 && wh.bits == 8){
                  Processor *processor1 = new Echo(44100);
          unsigned char * b = wav.get8BitBuffer(s);
@@ -199,14 +203,18 @@ the appropriate four letter combination,
   * @brief This four letter combination and the input it is associated
 with is than appended to the file.
   */
+
                   Metadata->header.metadata_chunk_type[0] = key[0];
                   Metadata->header.metadata_chunk_type[1] = key[1];
                   Metadata->header.metadata_chunk_type[2] = key[2];
                   Metadata->header.metadata_chunk_type[3] = key[3];
+
                   Metadata->data = md;
                   Metadata->header.metadata_chunk_size = 2;
+
                   (*x)->getMetadataList()[y] = (*x)->getMetadataList()[y-1];
                   (*x)->getMetadataList()[y-1] = *Metadata;
+
                   wav.updateMetadata((*x), (*x)->getMetadataList(), y+1);
               }
               else{
@@ -214,6 +222,7 @@ with is than appended to the file.
               }
           unsigned char * b = wav.get8BitBuffer(s);
               wav.newFile8Bit((*x), s2, b);
+
 (*x)->getMetadataList()[0].header.metadata_chunk_size =
 (*x)->getMetadataList()[0].header.metadata_chunk_size - 6;
           }
@@ -227,3 +236,5 @@ with is than appended to the file.
       }
       return 0;
 }
+
+
