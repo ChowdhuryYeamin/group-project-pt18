@@ -1,8 +1,3 @@
-
-Ryan Krysinski <gargy.krysinski@gmail.com>
-2:52 PM (0 minutes ago)
-to me
-
 #include <iostream>
 #include <string>
 #include <vector>
