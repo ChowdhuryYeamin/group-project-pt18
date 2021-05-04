@@ -12,8 +12,11 @@
 using namespace std;
 
 class DataPrinter: public Wav{
-     public:
-     void WriteFile();
+    	public:
+	DataPrinter(char size[4], int fmt_size, short audio_format, short channels, int sample_rate, int byte_rate, short block_align, short bits, int data_bytes);
+	~DataPrinter();
+
+     	void WriteFile();
 };
 
 #endif
