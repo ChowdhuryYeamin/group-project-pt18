@@ -1,5 +1,5 @@
-test: tempmain.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o
-	g++ -o testing tempmain.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o -lstdc++fs
+test: tempmain.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o normalization.o dataprinter.o
+	g++ -o testing tempmain.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o normalization.o dataprinter.o -lstdc++fs
 
 Wav.o: Wav.cpp Wav.h WaveHeader.h audiofile.h  
 	g++ -c Wav.cpp 
@@ -15,3 +15,9 @@ noisegate.o: noisegate.cpp noisegate.h Processor.h
 
 limiter.o: limiter.cpp limiter.h Processor.h
 	g++ -c limiter.cpp
+
+normalization.o: normalization.cpp normalization.h Processor.h
+	g++ -c normalization.cpp
+
+dataprinter.o: dataprinter.cpp dataprinter.h Processor.h
+	g++ -c dataprinter.cpp
