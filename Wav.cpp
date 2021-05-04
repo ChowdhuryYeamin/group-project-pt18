@@ -188,28 +188,3 @@ void Wav::updateMetadata(Audio *audio, metadata newMetadata_List[], int count) {
 	file.close();
 }
 
-
-/*
-void Wav::reWriteFile(std::string filename, char* data){
-	wav_header WavHeader;
-	metadata_header MetadataHeader;
-	file.read((char*)&WavHeader, sizeof(wav_header));
-	int x = WavHeader.size-36-WavHeader.data_bytes;
-	ofstream fout(filename);
-	file.read((char*)buffer, WavHeader.data_bytes);
-	if(fout.is_open()){
-		if(x != 0){
-			while(x > 0){
-				fout << data[i] << endl;
-			}
-		}
-		else{
-			continue;
-		}
-		fout.close();
-	}
-	else{
-		cout << "ERROR: File metadata could not be rewritten" << endl;
-	}
-}
-*/
