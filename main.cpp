@@ -109,8 +109,6 @@ int main() {
   * @brief User input is taken here.
   */
           if(userinput == 1){
-              //std::cout << "Please enter the name of the file you'd
-like to process" << endl;
               //std::cin >> filename;
               alternateMenu();
               cin >> userinput;
