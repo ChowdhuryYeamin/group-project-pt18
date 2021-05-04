@@ -112,7 +112,6 @@ int main() {
               //std::cin >> filename;
               alternateMenu();
               cin >> userinput;
-              std::string s2 = s+"testingbuffer";
           /**
   * @brief Upon receiving the users selection for the alternateMenu(),
 an if-else statement than performs the operation selected, be it Echo,
