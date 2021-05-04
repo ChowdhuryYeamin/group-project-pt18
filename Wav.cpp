@@ -10,7 +10,6 @@
 #include "audiofile.h"
 #include <string>
 
-
 unsigned char* Wav::get8BitBuffer(const std::string &filePath) {
 	std::ifstream file(filePath,std::ios::binary | std::ios::in);
 	unsigned char* buffer = NULL;
@@ -41,13 +40,6 @@ signed short* Wav::get16BitBuffer(const std::string &filePath) {
 
 std::vector<Audio*> Wav::getVectorList() {
 	return list;
-}
-
-void printx(char* word, int size) {
-	for(int x = 0; x < size; x++) {
-		std::cout << word[x];
-	}
-	std::cout << std::endl;
 }
 
 void Wav::readFile(const std::string &fileName) {
@@ -101,6 +93,13 @@ void Wav::readAllFiles(const std::string dirPath) {
 	}
 }
 
+/**
+This rewrites the metadata for files. This is locally defined as it is only needed in the wav.cpp which is why it is not in the wav.h file.
+@param file - the file being changed
+@param newMetadata_LIst - an array with the new metadata
+@param count - how many chunks of metadata there will be
+@returns the size of the new metadata
+*/
 int writeMetadata(std::ofstream *file, metadata newMetadata_List[], int count) {
 	metadata_header newMetadataHeader;
 	int MetadataSize = 0;
@@ -108,7 +107,7 @@ int writeMetadata(std::ofstream *file, metadata newMetadata_List[], int count) {
 	for (int x=0; x < count-1; x++) { //count-1 is to account for id3 in total size but not as metadata size
 		MetadataSize += newMetadata_List[x].header.metadata_chunk_size + sizeof(metadata_chunk);
 	}
-	MetadataSize += 4;
+	MetadataSize += 4; //not sure why but four bytes were missing, and adding this fixed the issue and allowed for the metadata to be edited
 
 	newMetadataHeader.metadata_header[0] = 'L';
 	newMetadataHeader.metadata_header[1] = 'I';
@@ -132,8 +131,6 @@ int writeMetadata(std::ofstream *file, metadata newMetadata_List[], int count) {
 
 	return MetadataSize + sizeof(metadata_header) + newMetadata_List[count-1].header.metadata_chunk_size + sizeof(metadata_chunk);
 }
-
-
 
 int Wav::newFile8Bit(Audio* audio, const std::string newName, unsigned char* buffer) {
 	std::ifstream ifile;
@@ -161,7 +158,6 @@ int Wav::newFile8Bit(Audio* audio, const std::string newName, unsigned char* buf
 int Wav::newFile16Bit(Audio* audio, const std::string newName, signed short* buffer) {
 	return newFile8Bit(audio, newName, (unsigned char *)buffer);
 }
-
 
 void Wav::updateMetadata(Audio *audio, metadata newMetadata_List[], int count) {
 
