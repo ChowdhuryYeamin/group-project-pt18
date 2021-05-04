@@ -42,14 +42,14 @@ signed short* Wav::get16BitBuffer(const std::string &filePath) {
 std::vector<Audio*> Wav::getVectorList() {
 	return list;
 }
-/*
+
 void printx(char* word, int size) {
 	for(int x = 0; x < size; x++) {
 		std::cout << word[x];
 	}
 	std::cout << std::endl;
 }
-*/
+
 void Wav::readFile(const std::string &fileName) {
     std::ifstream file(fileName,std::ios::binary | std::ios::in);
         if(file.is_open()) {
@@ -108,6 +108,7 @@ int writeMetadata(std::ofstream *file, metadata newMetadata_List[], int count) {
 	for (int x=0; x < count-1; x++) { //count-1 is to account for id3 in total size but not as metadata size
 		MetadataSize += newMetadata_List[x].header.metadata_chunk_size + sizeof(metadata_chunk);
 	}
+	MetadataSize += 4;
 
 	newMetadataHeader.metadata_header[0] = 'L';
 	newMetadataHeader.metadata_header[1] = 'I';
@@ -167,20 +168,17 @@ void Wav::updateMetadata(Audio *audio, metadata newMetadata_List[], int count) {
 	wav_header *wavheader = audio->getWavHeader();
 	std::string fileName = audio->getFilename();
 	std::ofstream file;
-	
 	if (count > 0) {
 		
-		std::experimental::filesystem::resize_file(fileName,sizeof(wavheader) + wavheader->data_bytes);
+		std::experimental::filesystem::resize_file(fileName,sizeof(wav_header) + wavheader->data_bytes);
 		file.open(fileName, std::ios::app);
-
 		int MetadataSize = writeMetadata(&file, newMetadata_List, count);
-		wavheader->size = sizeof(wavheader) + wavheader->data_bytes + MetadataSize;
+		wavheader->size = sizeof(wav_header) + wavheader->data_bytes + MetadataSize;
 	}
 	else {
-		wavheader->size = sizeof(wavheader) + wavheader->data_bytes;
-		std::experimental::filesystem::resize_file(fileName, sizeof(wavheader) + wavheader->data_bytes);
-
+		std::experimental::filesystem::resize_file(fileName, sizeof(wav_header) + wavheader->data_bytes);
 		file.open(fileName, std::ios::app);
+		wavheader->size = sizeof(wav_header) + wavheader->data_bytes;
 	}
 	
 	file.seekp(0);
