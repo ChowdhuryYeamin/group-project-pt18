@@ -17,9 +17,9 @@ class NoiseGate : public Processor{
 	~NoiseGate();
 	// Build a NoiseGate destructor
 
-    	void Processor8_M_S(unsigned char buffer[], int bufferSize) override;
+    	void Processor8_M_S(unsigned char* buffer, int bufferSize) override;
 
-    	void Processor16_M_S(signed short buffer[], int bufferSize) override;
+    	void Processor16_M_S(signed short* buffer, int bufferSize) override;
 
 
 };

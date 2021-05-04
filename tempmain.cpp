@@ -31,7 +31,7 @@ void alternateMenu(){
 }
 
 int main() {
-	
+	int userinput;
 	Wav wav;
 	std::vector<Audio *> list;
 	wav.readAllFiles(testfile);
