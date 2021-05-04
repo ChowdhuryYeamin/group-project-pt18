@@ -19,3 +19,5 @@ class DataPrinter: public Wav{
 
           void WriteFile(vector<Audio*> list);
 };
+
+#endif
