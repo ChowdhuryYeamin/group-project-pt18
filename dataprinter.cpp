@@ -3,7 +3,7 @@
 
 using namespace std;
 
-DataPrinter::DataPrinter() {}
+DataPrinter::DataPrinter() {};
 
 DataPrinter::~DataPrinter() {}
 
