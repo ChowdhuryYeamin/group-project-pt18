@@ -1,15 +1,12 @@
 #include "limiter.h"
 
 Limiter::Limiter() {};
-	// Build a contructor for the class Limiter
+	
 
 Limiter::~Limiter() {}
 
 void Limiter::Processor8_M_S(unsigned char* buffer, int bufferSize){
-	/** 
-	 * Build a function that limits 8 bit mono and stereo
-	 * @param unsigned char buffer[], int bufferSize
-	 */
+	
     double max= 0.9 * 255;
     double min= 0.1 * 255;
 
@@ -25,10 +22,7 @@ void Limiter::Processor8_M_S(unsigned char* buffer, int bufferSize){
 }
 
 void Limiter::Processor16_M_S(signed short* buffer, int bufferSize){
-	/** 
-	 * Build a function that limits 16 bit mono and stereo
-	 * @param singed short buffer[], int bufferSize
-	 */	
+		
     short max=0.9 * 32767;
     short min=0.9 * -32767;
 	

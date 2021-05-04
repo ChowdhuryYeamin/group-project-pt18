@@ -8,16 +8,16 @@
 #define LENGTH 500
 
 #include "Wav.h"
+#include "audiofile.h"
 
 using namespace std;
 
 class DataPrinter: public Wav{
-    	public:
-	DataPrinter(char size[4], int fmt_size, short audio_format, short channels, int sample_rate, int byte_rate, short block_align, short bits, int data_bytes);
-	~DataPrinter();
+         public:
+     DataPrinter();
+     ~DataPrinter();
 
-     	void WriteFile();
+          void WriteFile(vector<Audio*> list);
 };
 
 #endif
-
