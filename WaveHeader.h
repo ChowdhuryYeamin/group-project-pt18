@@ -37,7 +37,7 @@ typedef struct metadata_header {
 typedef struct metadata_chunk {
 	//Metadata Chunk
 	char metadata_chunk_type[4]; //"INAM", "IART", or "ICMP"
-	int metadata_chunk_size; //size of list
+	int metadata_chunk_size; //size of data
 
 } metadata_chunk;
 

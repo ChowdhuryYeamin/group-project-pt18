@@ -41,25 +41,46 @@ int main() {
 		std::cout<< (*x)->getFilename() << std::endl;
 		int y = (*x)->getCount();
 		const std::string s = (*x)->getFilename();
-		std::string s2 = s+"testingbuffer";
+//		std::string s2 = s+"testingbuffer";
 
-		unsigned char * b = wav.get8BitBuffer(s);
+//		unsigned char * b = wav.get8BitBuffer(s);
 		// Add call to processors for each file here and modify the buffer
-		wav.newFile8Bit((*x), s2, b); // this is how to call if the proccessors do work
+//		wav.newFile8Bit((*x), s2, b); // this is how to call if the proccessors do work
+
+//		(*x)->getMetadataList()[0].header.metadata_chunk_size = (*x)->getMetadataList()[0].header.metadata_chunk_size - 6;
+
+		
+		char *sr = new char[2];
+		sr[0] = 'S';
+		sr[1] = 'R';
+		metadata *Metadata = new metadata;
+
+		Metadata->header.metadata_chunk_type[0] = 'I';
+		Metadata->header.metadata_chunk_type[1] = 'C';
+		Metadata->header.metadata_chunk_type[2] = 'M';
+		Metadata->header.metadata_chunk_type[3] = 'T';
+
+		Metadata->data = sr;
+		Metadata->header.metadata_chunk_size = 2;
+		// Need to move id3 entry to always be at end of metadata list.  New entries need to be added prior to id3 entry
+		(*x)->getMetadataList()[y] = (*x)->getMetadataList()[y-1];
+		(*x)->getMetadataList()[y-1] = *Metadata;
+
+		wav.updateMetadata((*x), (*x)->getMetadataList(), y+1);
+
+		
 	}
 }
 
-/*
-		if (y != 0) {
-			metadata *currentMetadata_List = (*x)->getMetadataList();
-			std::cout << "current metadata" << std::endl;
-			(*x)->printmd();
-			
-			for (int z =0; z < y; z++) {
-				print((*(currentMetadata_List+z)).header.metadata_chunk_type, 4);
-				std::cout << (*(currentMetadata_List+z)).header.metadata_chunk_size << std::endl;
-				print((*(currentMetadata_List+z)).data,(*(currentMetadata_List+z)).header.metadata_chunk_size);
-			}
-			
-		}
-*/
+
+
+
+
+
+
+
+
+
+
+
+
