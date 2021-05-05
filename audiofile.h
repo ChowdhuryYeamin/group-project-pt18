@@ -26,25 +26,25 @@ public:
 	*/
 	~Audio();
 
-	/*
+	/**
 	Returns the wavheader
 	@returns wavheader
 	*/
 	wav_header *getWavHeader();
 
-	/*
+	/**
 	Returns the file name
 	@returns filname
 	*/
 	std::string getFilename();
 
-	/*
+	/**
 	Returns the array of metadata structures
 	@returns metadata_List
 	*/
 	metadata *getMetadataList();
 
-	/*
+	/**
 	Returns the number of metadata chunks
 	@returns count_metadata
 	*/

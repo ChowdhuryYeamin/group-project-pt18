@@ -1,0 +1,86 @@
+\hypertarget{classEcho}{}\section{Echo Class Reference}
+\label{classEcho}\index{Echo@{Echo}}
+
+
+This is a echo class that inherits from the processor class.  
+
+
+
+
+{\ttfamily \#include $<$echo.\+h$>$}
+
+
+
+Inheritance diagram for Echo\+:
+% FIG 0
+
+
+Collaboration diagram for Echo\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEcho_af91611b596b84b017898ed20cad89a4e}\label{classEcho_af91611b596b84b017898ed20cad89a4e}} 
+\hyperlink{classEcho_af91611b596b84b017898ed20cad89a4e}{Echo} (int echo\+Delay1)
+\begin{DoxyCompactList}\small\item\em build a parameterized echo constructor and set atttribute. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEcho_a03c51e9ff426744f7ae68a9aac8614c8}\label{classEcho_a03c51e9ff426744f7ae68a9aac8614c8}} 
+\hyperlink{classEcho_a03c51e9ff426744f7ae68a9aac8614c8}{$\sim$\+Echo} ()
+\begin{DoxyCompactList}\small\item\em Build a echo destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classEcho_af4337545ebf5602337e605376bfa8dc3}{Processor8\+\_\+\+M\+\_\+S} (unsigned char $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em This is a override of the \hyperlink{classProcessor}{Processor} 8 bit function that create echo according to the delay. \end{DoxyCompactList}\item 
+void \hyperlink{classEcho_ad68f1fabcbac2646c70aded5904b3a2c}{Processor16\+\_\+\+M\+\_\+S} (signed short $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em This is a override of the \hyperlink{classProcessor}{Processor} 16 bit function that create echo according to the delay. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a echo class that inherits from the processor class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classEcho_ad68f1fabcbac2646c70aded5904b3a2c}\label{classEcho_ad68f1fabcbac2646c70aded5904b3a2c}} 
+\index{Echo@{Echo}!Processor16\+\_\+\+M\+\_\+S@{Processor16\+\_\+\+M\+\_\+S}}
+\index{Processor16\+\_\+\+M\+\_\+S@{Processor16\+\_\+\+M\+\_\+S}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{Processor16\+\_\+\+M\+\_\+\+S()}{Processor16\_M\_S()}}
+{\footnotesize\ttfamily void Echo\+::\+Processor16\+\_\+\+M\+\_\+S (\begin{DoxyParamCaption}\item[{signed short $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This is a override of the \hyperlink{classProcessor}{Processor} 16 bit function that create echo according to the delay. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Signed short buffer that contains 16 bit value from the wav file(buffer should already have values.) \\
+\hline
+{\em buffer\+Size} & provides the size of the buffer to run any loops needed for this function. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor_a2a0903d1ca9e627e8a45e5159ecc0505}{Processor}.
+
+\mbox{\Hypertarget{classEcho_af4337545ebf5602337e605376bfa8dc3}\label{classEcho_af4337545ebf5602337e605376bfa8dc3}} 
+\index{Echo@{Echo}!Processor8\+\_\+\+M\+\_\+S@{Processor8\+\_\+\+M\+\_\+S}}
+\index{Processor8\+\_\+\+M\+\_\+S@{Processor8\+\_\+\+M\+\_\+S}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{Processor8\+\_\+\+M\+\_\+\+S()}{Processor8\_M\_S()}}
+{\footnotesize\ttfamily void Echo\+::\+Processor8\+\_\+\+M\+\_\+S (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This is a override of the \hyperlink{classProcessor}{Processor} 8 bit function that create echo according to the delay. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Unsigned char buffer that contains 8 bit value from the wav file(buffer should already have values.) \\
+\hline
+{\em buffer\+Size} & provides the size of the buffer to run any loops needed for this function. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor_a5a977cc3596fdeac860d5e28a99806a1}{Processor}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+echo.\+h\item 
+echo.\+cpp\end{DoxyCompactItemize}
