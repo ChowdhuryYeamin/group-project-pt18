@@ -1,5 +1,5 @@
-AudioProcessor: main.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o normalization.o dataprinter.o
-	g++ -o testing main.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o normalization.o dataprinter.o -lstdc++fs
+AudioProcessor: main.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o normalization.o 
+	g++ -o testing main.cpp Wav.o audiofile.o echo.o noisegate.o limiter.o normalization.o  -lstdc++fs
 
 Wav.o: Wav.cpp Wav.h WaveHeader.h audiofile.h  
 	g++ -c Wav.cpp 

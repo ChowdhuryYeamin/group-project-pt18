@@ -3,11 +3,11 @@
 
 using namespace std;
 
-DataPrinter::DataPrinter() {};
+DataPrinter::DataPrinter() {}
 
 DataPrinter::~DataPrinter() {}
 
-void DataPrinter::WriteFile(vector<Audio*> list){
+void DataPrinter::WriteFile(vector<Audio*> list) {
      int index;
      wav_header wavh;
      metadata md;

@@ -11,6 +11,7 @@
  * They will be implemented in limiter, noisegate, normalization, and echo classes. 
  */
 class Processor{
+public:
 /**
  * @brief It is a pure virtual function the preocesses 8 bit buffer. 
  * @param buffer Unsigned char buffer that contains 8 bit value from the wav file(buffer should already have values.)

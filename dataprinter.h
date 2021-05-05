@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class DataPrinter: public Wav{
+class DataPrinter {
      	public:
 	/**
  * @brief This is a dataprinter class, it inherits from the Wav class

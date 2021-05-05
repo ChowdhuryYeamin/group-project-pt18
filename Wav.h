@@ -33,7 +33,7 @@ public:
 
 	/**
 	This reads all of the technical and metadata from a file and stores them in the proper structures, as well as putting each files audio class in a vector list
-	@param fileName - which file is being read
+	@param fp - which file is being read
 	*/
 	void readFile(const std::string &fp);
 
