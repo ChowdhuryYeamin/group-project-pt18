@@ -11,6 +11,9 @@
 #include "WaveHeader.h"
 #include "audiofile.h"
 
+/**
+@Brief This is the Wav class, and it includes all of the functions that involve the files/data involved
+*/
 class Wav {
 	std::vector<Audio*> list;
 public:

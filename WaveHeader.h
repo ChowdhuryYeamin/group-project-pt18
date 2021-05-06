@@ -5,7 +5,7 @@
 #define PROGRAMMING_ASSIGNMENT_3KL_WAVEHEADER_H
 
 /**
-This is the wav header, and it contains the technical data of the wav files.
+@brief This is the wav header, and it contains the technical data of the wav files.
 */
 typedef struct wav_header {
 	//Riff Header
@@ -30,7 +30,7 @@ typedef struct wav_header {
 } wav_header;
 
 /**
-This is the metadata header, and it contains the size and information of the metadata.
+@brief This is the metadata header, and it contains the size and information of the metadata.
 */
 typedef struct metadata_header {
 	//Metadata Header
@@ -41,7 +41,7 @@ typedef struct metadata_header {
 } metadata_header;
 
 /**
-This is the metadata chunk header, and it contains the metadata chunk header information
+@brief This is the metadata chunk header, and it contains the metadata chunk header information
 */
 typedef struct metadata_chunk {
 	//Metadata Chunk Header
@@ -51,7 +51,7 @@ typedef struct metadata_chunk {
 } metadata_chunk;
 
 /**
-This is the metadata, and it contains the chunk header and pointer to the data.
+@brief This is the metadata, and it contains the chunk header and pointer to the data.
 */
 typedef struct metadata {
 	//Saved Metadata

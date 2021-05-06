@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/**
+@brief This is the dataprinter class, and it prints the csv file
+*/
 class DataPrinter {
      	public:
 	/**

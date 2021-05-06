@@ -1,5 +1,3 @@
-/** @file */
-
 #include <iostream>
 
 #include <string>
@@ -18,7 +16,7 @@
 
 #include "dataprinter.h"
 
-** @file
+/** @file
 Author 1: Yeamin Chowdhury
 *Creates all the processor classes and doxygen documentation.
 *Processor (abstract)
@@ -26,18 +24,19 @@ Author 1: Yeamin Chowdhury
 *Echo
 *Normalization
 *Author 2: Sean Rolandelli
-*Creates the wave file
-*Reading of all datas including metadata
+*Created structures in wavheader.h
+*Created the wave file
+*Reading and writing of all technical data, buffer, and metadata
 *Doxygen Generation
 *Author 3: Ryan Krysinski
-*Creates the wave file and data printer class.
-*Functionality of writing all datas including metadata.
+*Created the main.cpp and data printer class which prints csv.
+*Integration of all of the code in main.
 *Doxygen Commenting.
 *
 *Issues faced
 *Everyone worked on the main.cpp file.
 *The biggest issue was we could not figure out how to write the metadata out.
-*As we were not fimiliar with audio processing, understanding how the wave file works was sort of *hard.
+*As we were not fimiliar with audio processing, understanding how the wave file works was sort of hard.
 */
 
 using namespace std;

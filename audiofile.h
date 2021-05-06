@@ -6,6 +6,9 @@
 
 #include "WaveHeader.h"
 
+/**
+@brief This is the audio class, and it is the object that holds the information about each file
+*/
 class Audio {
 	wav_header *wavheader;
 	std::string filename;
