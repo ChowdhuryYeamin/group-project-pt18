@@ -1,0 +1,100 @@
+\hypertarget{classAudio}{}\section{Audio Class Reference}
+\label{classAudio}\index{Audio@{Audio}}
+
+
+This is the audio class, and it is the object that holds the information about each file.  
+
+
+
+
+{\ttfamily \#include $<$audiofile.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAudio_a219fef2857b36e3c0b4d04e1ec5d5927}{Audio} (\hyperlink{structwav__header}{wav\+\_\+header} $\ast$wavheader, \hyperlink{structmetadata}{metadata} metadata\+\_\+\+List\mbox{[}$\,$\mbox{]}, int count\+\_\+metadata, std\+::string filename)
+\item 
+\hyperlink{classAudio_ae8f54deecb5f48511aaab469e80294d6}{$\sim$\+Audio} ()
+\item 
+\hyperlink{structwav__header}{wav\+\_\+header} $\ast$ \hyperlink{classAudio_ac0c6115c2102ec602cdc99dc9929fb86}{get\+Wav\+Header} ()
+\item 
+std\+::string \hyperlink{classAudio_a33b723e5b540b84b1d7fcd59d0eee567}{get\+Filename} ()
+\item 
+\hyperlink{structmetadata}{metadata} $\ast$ \hyperlink{classAudio_a6da23521eb58061da65ac88823b875e6}{get\+Metadata\+List} ()
+\item 
+int \hyperlink{classAudio_acd1ab84a9b985a1792238313d9fc3448}{get\+Count} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the audio class, and it is the object that holds the information about each file. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAudio_a219fef2857b36e3c0b4d04e1ec5d5927}\label{classAudio_a219fef2857b36e3c0b4d04e1ec5d5927}} 
+\index{Audio@{Audio}!Audio@{Audio}}
+\index{Audio@{Audio}!Audio@{Audio}}
+\subsubsection{\texorpdfstring{Audio()}{Audio()}}
+{\footnotesize\ttfamily Audio\+::\+Audio (\begin{DoxyParamCaption}\item[{\hyperlink{structwav__header}{wav\+\_\+header} $\ast$}]{wavheader,  }\item[{\hyperlink{structmetadata}{metadata}}]{metadata\+\_\+\+List\mbox{[}$\,$\mbox{]},  }\item[{int}]{count\+\_\+metadata,  }\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Constructs the audio class 
+\begin{DoxyParams}{Parameters}
+{\em wavheader} & -\/ wavheader structer with technical information \\
+\hline
+{\em metadata\+\_\+\+List} & -\/ an array of metadata structures \\
+\hline
+{\em count\+\_\+metadata} & -\/ the amount of metadata chunks \\
+\hline
+{\em filename} & -\/ the name of the file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAudio_ae8f54deecb5f48511aaab469e80294d6}\label{classAudio_ae8f54deecb5f48511aaab469e80294d6}} 
+\index{Audio@{Audio}!````~Audio@{$\sim$\+Audio}}
+\index{````~Audio@{$\sim$\+Audio}!Audio@{Audio}}
+\subsubsection{\texorpdfstring{$\sim$\+Audio()}{~Audio()}}
+{\footnotesize\ttfamily Audio\+::$\sim$\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hyperlink{classAudio}{Audio} deconstructor 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAudio_acd1ab84a9b985a1792238313d9fc3448}\label{classAudio_acd1ab84a9b985a1792238313d9fc3448}} 
+\index{Audio@{Audio}!get\+Count@{get\+Count}}
+\index{get\+Count@{get\+Count}!Audio@{Audio}}
+\subsubsection{\texorpdfstring{get\+Count()}{getCount()}}
+{\footnotesize\ttfamily int Audio\+::get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the number of metadata chunks \begin{DoxyReturn}{Returns}
+count\+\_\+metadata 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAudio_a33b723e5b540b84b1d7fcd59d0eee567}\label{classAudio_a33b723e5b540b84b1d7fcd59d0eee567}} 
+\index{Audio@{Audio}!get\+Filename@{get\+Filename}}
+\index{get\+Filename@{get\+Filename}!Audio@{Audio}}
+\subsubsection{\texorpdfstring{get\+Filename()}{getFilename()}}
+{\footnotesize\ttfamily std\+::string Audio\+::get\+Filename (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the file name \begin{DoxyReturn}{Returns}
+filname 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAudio_a6da23521eb58061da65ac88823b875e6}\label{classAudio_a6da23521eb58061da65ac88823b875e6}} 
+\index{Audio@{Audio}!get\+Metadata\+List@{get\+Metadata\+List}}
+\index{get\+Metadata\+List@{get\+Metadata\+List}!Audio@{Audio}}
+\subsubsection{\texorpdfstring{get\+Metadata\+List()}{getMetadataList()}}
+{\footnotesize\ttfamily \hyperlink{structmetadata}{metadata} $\ast$ Audio\+::get\+Metadata\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the array of metadata structures \begin{DoxyReturn}{Returns}
+metadata\+\_\+\+List 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAudio_ac0c6115c2102ec602cdc99dc9929fb86}\label{classAudio_ac0c6115c2102ec602cdc99dc9929fb86}} 
+\index{Audio@{Audio}!get\+Wav\+Header@{get\+Wav\+Header}}
+\index{get\+Wav\+Header@{get\+Wav\+Header}!Audio@{Audio}}
+\subsubsection{\texorpdfstring{get\+Wav\+Header()}{getWavHeader()}}
+{\footnotesize\ttfamily \hyperlink{structwav__header}{wav\+\_\+header} $\ast$ Audio\+::get\+Wav\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the wavheader \begin{DoxyReturn}{Returns}
+wavheader 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+audiofile.\+h\item 
+audiofile.\+cpp\end{DoxyCompactItemize}

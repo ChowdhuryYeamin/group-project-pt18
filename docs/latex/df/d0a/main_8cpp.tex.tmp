@@ -1,0 +1,87 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}audiofile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}echo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}noisegate.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}limiter.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}normalization.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dataprinter.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a3c9332a993a8b1afa3733c9ba7a8b3f4}\label{main_8cpp_a3c9332a993a8b1afa3733c9ba7a8b3f4}} 
+void {\bfseries print} (char $\ast$word, int size)
+\item 
+void \hyperlink{main_8cpp_afdf1ca9e7afc3e7ec41b47fea4b3d80d}{Menu} ()
+\item 
+void \hyperlink{main_8cpp_a5630f58cc09b1b6b06f6839264571a60}{alternate\+Menu} ()
+\item 
+\mbox{\Hypertarget{main_8cpp_ad9d70abccb75528cb733440be1a15844}\label{main_8cpp_ad9d70abccb75528cb733440be1a15844}} 
+void {\bfseries meta\+Data\+Menu} ()
+\item 
+int \hyperlink{main_8cpp_aa31c87377c88d843ef5492566e011696}{xbuff\+Length} (unsigned char $\ast$b)
+\begin{DoxyCompactList}\small\item\em Is called in the main function to display the user interface. \end{DoxyCompactList}\item 
+int \hyperlink{main_8cpp_ad7ed8779f1f77deabc32af593d097ce6}{xsbuff\+Length} (short $\ast$bu)
+\item 
+int \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a6f099837ea61cd01280a1ae9af519c08}\label{main_8cpp_a6f099837ea61cd01280a1ae9af519c08}} 
+const std\+::string {\bfseries testfile} = \char`\"{}./waves/waves\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Author 1\+: Yeamin Chowdhury Creates all the processor classes and doxygen documentation. \hyperlink{classProcessor}{Processor} (abstract) Noise Gate \hyperlink{classEcho}{Echo} \hyperlink{classNormalization}{Normalization} Author 2\+: Sean Rolandelli Created structures in wavheader.\+h Created the wave file Reading and writing of all technical data, buffer, and metadata Doxygen Generation Author 3\+: Ryan Krysinski Created the \hyperlink{main_8cpp}{main.\+cpp} and data printer class which prints csv. Integration of all of the code in main. Doxygen Commenting.
+
+Issues faced Everyone worked on the \hyperlink{main_8cpp}{main.\+cpp} file. The biggest issue was we could not figure out how to write the metadata out. As we were not fimiliar with audio processing, understanding how the wave file works was sort of hard. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a5630f58cc09b1b6b06f6839264571a60}\label{main_8cpp_a5630f58cc09b1b6b06f6839264571a60}} 
+\index{main.\+cpp@{main.\+cpp}!alternate\+Menu@{alternate\+Menu}}
+\index{alternate\+Menu@{alternate\+Menu}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{alternate\+Menu()}{alternateMenu()}}
+{\footnotesize\ttfamily void alternate\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is called in the main function to display the user interface.\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+User input is taken here.
+
+Upon receiving the users selection for the \hyperlink{main_8cpp_a5630f58cc09b1b6b06f6839264571a60}{alternate\+Menu()}, an if-\/else statement than performs the operation selected, be it \hyperlink{classEcho}{Echo}, Noisegate, Normalizer or \hyperlink{classLimiter}{Limiter}. A new object is than created using the constructors in each function, the buffer length is taken and then the pointer is set to the results given by the processor.
+
+Upon receiving the users selection for the \hyperlink{main_8cpp_a5630f58cc09b1b6b06f6839264571a60}{alternate\+Menu()}, an if-\/else statement than performs the operation selected, a new menu is shown showing the metadata the user can change. The user than selects the appropriate four letter combination,
+
+This four letter combination and the input it is associated with is then appended to the file.\mbox{\Hypertarget{main_8cpp_afdf1ca9e7afc3e7ec41b47fea4b3d80d}\label{main_8cpp_afdf1ca9e7afc3e7ec41b47fea4b3d80d}} 
+\index{main.\+cpp@{main.\+cpp}!Menu@{Menu}}
+\index{Menu@{Menu}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily void Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is called in the main function to display the user interface.\mbox{\Hypertarget{main_8cpp_aa31c87377c88d843ef5492566e011696}\label{main_8cpp_aa31c87377c88d843ef5492566e011696}} 
+\index{main.\+cpp@{main.\+cpp}!xbuff\+Length@{xbuff\+Length}}
+\index{xbuff\+Length@{xbuff\+Length}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{xbuff\+Length()}{xbuffLength()}}
+{\footnotesize\ttfamily int xbuff\+Length (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Is called in the main function to display the user interface. 
+
+Finds the length of the buffer so that it may be passed into the \hyperlink{classProcessor}{Processor} functions.\mbox{\Hypertarget{main_8cpp_ad7ed8779f1f77deabc32af593d097ce6}\label{main_8cpp_ad7ed8779f1f77deabc32af593d097ce6}} 
+\index{main.\+cpp@{main.\+cpp}!xsbuff\+Length@{xsbuff\+Length}}
+\index{xsbuff\+Length@{xsbuff\+Length}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{xsbuff\+Length()}{xsbuffLength()}}
+{\footnotesize\ttfamily int xsbuff\+Length (\begin{DoxyParamCaption}\item[{short $\ast$}]{bu }\end{DoxyParamCaption})}
+
+Finds the length of the buffer so that it may be passed into the \hyperlink{classProcessor}{Processor} functions.
