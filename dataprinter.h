@@ -26,7 +26,8 @@ class DataPrinter {
 
     	void WriteFile(vector<Audio*> list);
 	/**
- * @brief Writes off key technical information and metadata for all files using a far loop. Takes in the vector list of all the audio files as an argument and loops through them accordingly. 
+ * @brief Writes off key technical information and metadata for all files using a far loop. Takes in the vector list of all the audio files as an argument and loops through them accordingly.
+   @param list - contains all audio objects so that they can be printed into the CSV file. 
  */
 };
 
