@@ -1,10 +1,10 @@
 # CS 202 Semester Project Template
 
-Audio Processing Project
+#Audio Processing Project
 
 This project involves creating signal processing modules for audio WAV files. It's designed to handle both 8-bit and 16-bit audio modules.
 
-Project Architecture
+#Project Architecture
 
 The architecture includes the construction of necessary WAV classes capable of extracting 8-bit and 16-bit data. These classes are not provided as a part of the starter project and must be built as a part of this assignment.
 
